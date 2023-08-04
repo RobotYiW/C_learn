@@ -270,8 +270,221 @@
 //}
 
 
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	while (scanf("%d %d %d", &a, &b, &c) == 3)
+//	{
+//		if ((a + b > c) && (a + c > b) && (b + c > a))
+//		{
+//			if (a == b && b == c)
+//				printf("Equilateral triangle\n");
+//			else if (a == b || b == c || a == c)
+//				printf("Isosceles triangle!\n");
+//			else
+//				printf("Ordinary triangle!\n");
+//		}
+//		else
+//			printf("Not a triangle!\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	char arr[10001] = { 0 };
+//	//scanf("%s", &arr);
+//	gets(arr);//读取，内容放在arr
+//	int sz = strlen(arr);
+//	int left = 0;
+//	int right = sz - 1;
+//	while (left < right)
+//	{
+//		char tmp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//	printf("%s\n", arr);
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	scanf("%d %d", &a, &n);
+//	int tmp = 0;
+//	int Sn = 0;
+//	for (int i = 0; i < n; i++)
+//	{
+//		tmp = tmp * 10 + a;
+//		Sn += tmp;
+//	}
+//	printf("%d", Sn);
+//	return 0;
+//}
+
+
+//#include <math.h>
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i <= 100000; i++)
+//	{
+//		int arr[6] = { 0 };
+//		int j = 0;
+//		int tmp = i;
+//		while (tmp > 0)
+//		{
+//			arr[j] = tmp % 10;
+//			j++;
+//			tmp /= 10;
+//		}
+//		int sum = 0;
+//		for (int x = 0; x < j; x++)
+//		{
+//			sum += pow(arr[x], j);
+//		}
+//		if (i == sum)
+//			printf("%d ", i);
+//
+//	}
+//}
+
+
+
+//int main()
+//{
+//	int n = 0;
+//	scanf("%d", &n);
+//	int i = 0;
+//	for (i = 0; i < n; i++)
+//	{
+//		for (int j = 0; j < n - 1 - i; j++)
+//		{
+//			printf(" ");
+//		}
+//		for (int j = 0; j < 2 * i - 1; j++)
+//			printf("*");
+//		printf("\n");
+//	}
+//	for (i = 0; i < n - 1; i++)
+//	{
+//		int j = 0;
+//		for (int j = 0; j < i; j++)
+//		{
+//			printf(" ");
+//		}
+//		for (j = 0; j < 2 * (n - 1 - i) - 1; j++)
+//			printf("*");
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+
+//int main()
+//{
+//	int price = 0;
+//	scanf("%d", &price);
+//	int ret = price;
+//	int bottle = price;
+//	while (bottle > 1)
+//	{
+//		ret += bottle / 2;
+//		bottle -= bottle/2;
+//	}
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf("%d %d", &a, &b);
+//	int i = 1;
+//	while (a * i % b)
+//		i++;
+//	printf("%d", a * i);
+//	return 0;
+//}
+
+
+//void print(char* arr)
+//{
+//	int i = 0;
+//	while (*(arr + i) != '\0' && *(arr + i) != ' ')
+//		i++;
+//	if (*(arr + i) == ' ')
+//	{
+//		print(arr + i + 1);
+//		for (int j = 0; j < i; j++)
+//			printf("%c", *(arr + j));
+//	}
+//
+//	else if (*(arr + i) == '\0')
+//	{
+//		for (int j = 0; j < i; j++)
+//			printf("%c", *(arr + j));
+//	}
+//	printf(" ");
+//	i++;
+//}
+//int main()
+//{
+//	char arr[101] = { 0 };
+//	gets(arr);
+//	print(arr);
+//	return 0;
+//}
+
+
+#include<string.h>
+void reverse(char* left,char* right)
+{
+	while (left < right)
+	{
+		int tmp = *right;
+		*right = *left;
+		*left = tmp;
+		right--;
+		left++;
+	}
+}
 int main()
 {
-
+	char arr[101] = { 0 };
+	gets(arr);
+	int sz = strlen(arr);
+	reverse(arr, arr + sz - 1);
+	char* start = arr;
+	char* end = arr;
+	while (*start)
+	{
+		while (*end != ' ' && *end != '\0')
+		{
+			end++;
+		}
+		reverse(start, end - 1);
+		if(*end != "\0")
+			end++;
+		start = end;
+	}
+	printf("%s", arr);
 	return 0;
 }
